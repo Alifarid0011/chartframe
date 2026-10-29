@@ -1,0 +1,22 @@
+goos: linux
+goarch: amd64
+pkg: github.com/Alifarid0011/chartframe
+cpu: 12th Gen Intel(R) Core(TM) i3-1215U
+BenchmarkSVG/100-2     	     148	   1698096 ns/op	  626882 B/op	    1555 allocs/op
+BenchmarkSVG/100-2     	     206	   1127870 ns/op	  626747 B/op	    1555 allocs/op
+BenchmarkSVG/100-2     	     201	   1145024 ns/op	  626776 B/op	    1555 allocs/op
+BenchmarkSVG/1000-2    	      64	   4019892 ns/op	 2839883 B/op	    3408 allocs/op
+BenchmarkSVG/1000-2    	      56	   4028229 ns/op	 2839909 B/op	    3409 allocs/op
+BenchmarkSVG/1000-2    	      63	   4161691 ns/op	 2840717 B/op	    3409 allocs/op
+BenchmarkSVG/10000-2   	       6	  38072002 ns/op	31838288 B/op	   21523 allocs/op
+BenchmarkSVG/10000-2   	       6	  40010469 ns/op	31837566 B/op	   21517 allocs/op
+BenchmarkSVG/10000-2   	       6	  36472407 ns/op	31838484 B/op	   21525 allocs/op
+BenchmarkFitLinear-2   	    3979	     70556 ns/op	   16384 B/op	       2 allocs/op
+BenchmarkFitLinear-2   	    3978	     73364 ns/op	   16384 B/op	       2 allocs/op
+BenchmarkFitLinear-2   	    4147	     66471 ns/op	   16384 B/op	       2 allocs/op
+BenchmarkDescribe-2    	    2163	    108005 ns/op	   16384 B/op	       2 allocs/op
+BenchmarkDescribe-2    	    2174	    110652 ns/op	   16384 B/op	       2 allocs/op
+BenchmarkDescribe-2    	    2358	     99924 ns/op	   16384 B/op	       2 allocs/op
+PASS
+ok  	github.com/Alifarid0011/chartframe	4.649s
+?   	github.com/Alifarid0011/chartframe/cmd/gallery	[no test files]

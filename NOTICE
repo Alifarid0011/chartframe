@@ -1,0 +1,5 @@
+chartframe is authored by alifarid and distributed under the MIT license.
+Its rendering backend is Gonum Plot (gonum.org/v1/plot), distributed under
+the BSD 3-Clause license by The Gonum Authors. Transitive dependencies,
+including fonts and image/PDF libraries, retain their respective licenses.
+This repository does not claim to implement or replace Gonum's backends.

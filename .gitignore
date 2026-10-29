@@ -1,0 +1,4 @@
+*.test
+coverage.out
+profile.cov
+.DS_Store

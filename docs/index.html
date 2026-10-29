@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Chartframe: Go charts for exploratory analysis, reports, and web pages. Explore real rendered examples and download SVG, PNG, PDF, and interactive HTML.">
+<meta name="theme-color" content="#f6f3ec">
+<title>Chartframe — a small plotting toolkit for Go</title>
+<style>
+:root{color-scheme:light;--paper:#f6f3ec;--ink:#172e43;--muted:#526575;--line:#dcded8;--teal:#087f75;--amber:#d79936}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--teal);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:5px}main,nav,footer{max-width:1240px;margin:auto;padding-left:40px;padding-right:40px}nav{min-height:96px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:24px}.brand{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:750;letter-spacing:-.7px;font-size:23px;text-decoration:none}.brand svg{width:32px;height:32px}.navlinks{display:flex;gap:24px;font-size:14px}.navlinks a{color:var(--ink);text-decoration:none}.navlinks a:hover{text-decoration:underline}.hero{padding:76px 0 64px;max-width:950px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin:0 0 20px}.eyebrow::before{content:"";display:inline-block;width:24px;height:3px;background:var(--amber);margin:0 10px 3px 0}h1{font-size:clamp(42px,6vw,76px);font-weight:650;line-height:1.05;letter-spacing:-3px;margin:0 0 26px;max-width:860px}h1 span{color:var(--teal)}.lead{max-width:660px;font-size:19px;line-height:1.65;color:var(--muted);margin:0 0 30px}.actions{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:1px solid var(--ink);border-radius:5px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:650}.primary{background:var(--ink);color:white}.button:hover{background:#e6ebe4;text-decoration:none}.primary:hover{background:#29485e}.install{margin-top:24px;display:inline-block;background:#eaece5;border:1px solid #dfe2d9;border-radius:5px;padding:10px 15px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}.install span{color:var(--teal);user-select:none}.section-heading{display:flex;justify-content:space-between;align-items:baseline;gap:24px;border-top:1px solid var(--line);padding-top:27px;margin-bottom:26px}.section-heading h2{font-size:23px;letter-spacing:-.6px;margin:0}.section-heading p{font-size:13px;color:var(--muted);margin:0}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;align-items:start}.card{background:white;border:1px solid var(--line);border-radius:10px;overflow:hidden}.card-head{padding:25px 26px 12px}.kind{font-size:11px;color:var(--teal);font-weight:750;letter-spacing:1px;text-transform:uppercase;margin:0 0 7px}.card h3{font-size:24px;letter-spacing:-.6px;line-height:1.25;margin:0 0 10px}.card-head p:last-child{font-size:14px;line-height:1.6;color:var(--muted);margin:0;min-height:68px}.plot{display:block;padding:0 14px}.plot img{display:block;width:100%;height:auto;aspect-ratio:72/43}.downloads{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 26px 18px;font-size:12px}.downloads span{color:var(--muted)}.downloads div{display:flex;gap:17px}.downloads a{font-weight:700;text-decoration:none}.downloads a:hover{text-decoration:underline}details{border-top:1px solid #e5e9e5;background:#fafbf8}summary{cursor:pointer;padding:15px 26px;font-size:13px;font-weight:650}pre{margin:0;padding:0 26px 24px;overflow:auto;font:11px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2;color:#294659}.report{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;margin:58px 0;padding:38px 40px;background:var(--ink);color:#fff;border-radius:10px}.report .eyebrow{color:#89d4c7;margin-bottom:12px}.report h2{font-size:30px;letter-spacing:-.8px;line-height:1.25;margin:0 0 12px}.report p{font-size:14px;color:#c4d1da;margin:0}.report .actions{justify-content:flex-end}.report .button{color:white;border-color:#81929f}.report .button:hover{background:#29485e}.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;padding-bottom:55px}.notes h3{font-size:16px;margin:0 0 9px}.notes p{font-size:14px;color:var(--muted);margin:0}footer{border-top:1px solid var(--line);padding-top:27px;padding-bottom:36px;display:flex;justify-content:space-between;gap:25px;font-size:12px;color:var(--muted)}footer p{margin:0}footer div{display:flex;gap:18px}footer a{color:var(--ink)}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media(max-width:780px){main,nav,footer{padding-left:22px;padding-right:22px}.hero{padding:54px 0 45px}h1{letter-spacing:-1.8px}.lead{font-size:17px}.gallery{grid-template-columns:1fr}.card-head p:last-child{min-height:0}.section-heading{align-items:start;flex-direction:column;gap:6px}.report{grid-template-columns:1fr;padding:28px;gap:24px}.report .actions{justify-content:flex-start}.notes{grid-template-columns:1fr;gap:22px}footer{flex-direction:column;gap:16px}.navlinks{gap:16px;font-size:12px}nav{min-height:80px}.brand{font-size:21px}}@media(max-width:390px){.navlinks a:first-child{display:none}.downloads{padding-left:20px;padding-right:20px}.downloads div{gap:12px}}
+</style>
+</head>
+<body>
+<nav aria-label="Main navigation">
+<a class="brand" href="./"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7" stroke="#172e43" stroke-width="2"/><path d="M8 22V10M8 22H24" stroke="#172e43" stroke-width="2"/><path d="m11 18 5-5 4 2 5-7" stroke="#087f75" stroke-width="2.5"/><circle cx="20" cy="15" r="2.5" fill="#d79936"/></svg>chartframe</a>
+<div class="navlinks"><a href="#gallery">Gallery</a><a href="API.md">API reference</a><a href="https://github.com/Alifarid0011/chartframe">GitHub ↗</a></div>
+</nav>
+<main>
+<header class="hero">
+<p class="eyebrow">A plotting toolkit for Go · v0.1</p>
+<h1>From a slice of data<br>to <span>a clearer picture.</span></h1>
+<p class="lead">Build charts for exploratory analysis, reports, and web pages with a small Go API. Render crisp vectors, portable images, and self-contained HTML.</p>
+<div class="actions"><a class="button primary" href="#gallery">Explore the gallery ↓</a><a class="button" href="https://github.com/Alifarid0011/chartframe#install">Start with Go ↗</a></div>
+<div class="install"><span>$</span> go get github.com/Alifarid0011/chartframe</div>
+</header>
+<section id="gallery" aria-labelledby="gallery-title">
+<div class="section-heading"><h2 id="gallery-title">Six ways to explore your data</h2><p>Rendered by this Go package · synthetic, reproducible examples</p></div>
+<div class="gallery">
+<article class="card" id="trend">
+<div class="card-head"><p class="kind">Line · Scatter · Linear fit</p><h3>Find the signal</h3><p>Monthly observations, their connected path, and an ordinary least-squares fit. Synthetic values show a gradual upward trend.</p></div>
+<a class="plot" href="charts/trend.html" aria-label="Open interactive chart: Find the signal"><img src="charts/trend.svg" width="720" height="430" loading="lazy" alt="Monthly observations, their connected path, and an ordinary least-squares fit. Synthetic values show a gradual upward trend."></a>
+<div class="downloads"><span>Open or download</span><div><a href="charts/trend.svg" download>SVG</a><a href="charts/trend.png" download>PNG</a><a href="charts/trend.html" download>HTML</a></div></div>
+<details><summary>View runnable Go example</summary><pre><code>package main
+
+import (
+	cf &#34;github.com/Alifarid0011/chartframe&#34;
+	&#34;log&#34;
+)
+
+func main() {
+	x := []float64{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+	y := []float64{12, 16, 15, 22, 24, 23, 30, 32, 31, 38, 40, 43}
+	c := cf.New(&#34;Monthly observations&#34;).
+		Line(&#34;observed&#34;, x, y).
+		Scatter(&#34;samples&#34;, x, y).
+		LinearFit(&#34;least-squares&#34;, x, y).
+		Labels(&#34;Month&#34;, &#34;Response&#34;)
+	if err := c.Save(&#34;trend.svg&#34;); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre></details>
+</article><article class="card" id="categories">
+<div class="card-head"><p class="kind">Grouped bar</p><h3>Compare the groups</h3><p>Two measurement periods across four regions. Matching category labels keep the series aligned; the vertical axis includes zero.</p></div>
+<a class="plot" href="charts/categories.html" aria-label="Open interactive chart: Compare the groups"><img src="charts/categories.svg" width="720" height="430" loading="lazy" alt="Two measurement periods across four regions. Matching category labels keep the series aligned; the vertical axis includes zero."></a>
+<div class="downloads"><span>Open or download</span><div><a href="charts/categories.svg" download>SVG</a><a href="charts/categories.png" download>PNG</a><a href="charts/categories.html" download>HTML</a></div></div>
+<details><summary>View runnable Go example</summary><pre><code>package main
+
+import (
+	cf &#34;github.com/Alifarid0011/chartframe&#34;
+	&#34;log&#34;
+)
+
+func main() {
+	labels := []string{&#34;North&#34;, &#34;South&#34;, &#34;East&#34;, &#34;West&#34;}
+	c := cf.New(&#34;Regional comparison&#34;).
+		Bar(&#34;baseline&#34;, labels, []float64{42, 35, 48, 38}).
+		Bar(&#34;current&#34;, labels, []float64{54, 44, 57, 51}).
+		Labels(&#34;Region&#34;, &#34;Units&#34;)
+	if err := c.Save(&#34;categories.svg&#34;); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre></details>
+</article><article class="card" id="distribution">
+<div class="card-head"><p class="kind">Histogram</p><h3>See the distribution</h3><p>Thirty-six synthetic measurements in eight equal-width bins. Every sample is counted, including observations on the final edge.</p></div>
+<a class="plot" href="charts/distribution.html" aria-label="Open interactive chart: See the distribution"><img src="charts/distribution.svg" width="720" height="430" loading="lazy" alt="Thirty-six synthetic measurements in eight equal-width bins. Every sample is counted, including observations on the final edge."></a>
+<div class="downloads"><span>Open or download</span><div><a href="charts/distribution.svg" download>SVG</a><a href="charts/distribution.png" download>PNG</a><a href="charts/distribution.html" download>HTML</a></div></div>
+<details><summary>View runnable Go example</summary><pre><code>package main
+
+import (
+	cf &#34;github.com/Alifarid0011/chartframe&#34;
+	&#34;log&#34;
+)
+
+func main() {
+	values := []float64{18, 22, 25, 26, 27, 28, 29, 30, 30, 31, 32, 33, 34, 34, 35, 36, 36, 37, 38, 38, 39, 40, 40, 41, 42, 42, 43, 44, 45, 46, 47, 48, 49, 50, 52, 56}
+	c := cf.New(&#34;Measurement distribution&#34;).
+		Histogram(&#34;samples&#34;, values, 8).
+		Labels(&#34;Measurement&#34;, &#34;Count&#34;)
+	if err := c.Save(&#34;distribution.svg&#34;); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre></details>
+</article><article class="card" id="summary">
+<div class="card-head"><p class="kind">Box plot</p><h3>Put spread in context</h3><p>Three small cohorts compared by median, quartiles, and spread. Quartiles use sorted linear interpolation (R type 7).</p></div>
+<a class="plot" href="charts/summary.html" aria-label="Open interactive chart: Put spread in context"><img src="charts/summary.svg" width="720" height="430" loading="lazy" alt="Three small cohorts compared by median, quartiles, and spread. Quartiles use sorted linear interpolation (R type 7)."></a>
+<div class="downloads"><span>Open or download</span><div><a href="charts/summary.svg" download>SVG</a><a href="charts/summary.png" download>PNG</a><a href="charts/summary.html" download>HTML</a></div></div>
+<details><summary>View runnable Go example</summary><pre><code>package main
+
+import (
+	cf &#34;github.com/Alifarid0011/chartframe&#34;
+	&#34;log&#34;
+)
+
+func main() {
+	c := cf.New(&#34;Cohort spread&#34;).
+		Box(&#34;A&#34;, []float64{20, 22, 23, 24, 24, 25, 26, 27, 29, 32}).
+		Box(&#34;B&#34;, []float64{24, 25, 27, 28, 29, 30, 31, 33, 35, 39}).
+		Box(&#34;C&#34;, []float64{19, 21, 22, 23, 24, 25, 26, 28, 31, 36}).
+		Labels(&#34;Cohort&#34;, &#34;Measurement&#34;)
+	if err := c.Save(&#34;summary.svg&#34;); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre></details>
+</article><article class="card" id="matrix">
+<div class="card-head"><p class="kind">Heatmap</p><h3>Spot the pattern</h3><p>A labeled weekday-by-time matrix. Color encodes relative activity; the color legend gives the numerical range.</p></div>
+<a class="plot" href="charts/matrix.html" aria-label="Open interactive chart: Spot the pattern"><img src="charts/matrix.svg" width="720" height="430" loading="lazy" alt="A labeled weekday-by-time matrix. Color encodes relative activity; the color legend gives the numerical range."></a>
+<div class="downloads"><span>Open or download</span><div><a href="charts/matrix.svg" download>SVG</a><a href="charts/matrix.png" download>PNG</a><a href="charts/matrix.html" download>HTML</a></div></div>
+<details><summary>View runnable Go example</summary><pre><code>package main
+
+import (
+	cf &#34;github.com/Alifarid0011/chartframe&#34;
+	&#34;log&#34;
+)
+
+func main() {
+	days := []string{&#34;Mon&#34;, &#34;Tue&#34;, &#34;Wed&#34;, &#34;Thu&#34;, &#34;Fri&#34;}
+	times := []string{&#34;09:00&#34;, &#34;12:00&#34;, &#34;15:00&#34;, &#34;18:00&#34;}
+	values := [][]float64{[]float64{12, 18, 15, 22, 19}, []float64{32, 41, 35, 44, 38}, []float64{24, 30, 28, 36, 32}, []float64{16, 22, 18, 25, 21}}
+	c := cf.New(&#34;Activity by weekday and time&#34;).
+		Heatmap(&#34;Activity&#34;, days, times, values).
+		Labels(&#34;Weekday&#34;, &#34;Time&#34;)
+	if err := c.Save(&#34;matrix.svg&#34;); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre></details>
+</article><article class="card" id="cumulative">
+<div class="card-head"><p class="kind">Empirical CDF</p><h3>Read the whole sample</h3><p>The same measurements as a cumulative step curve. Read the fraction of observations at or below a chosen measurement.</p></div>
+<a class="plot" href="charts/cumulative.html" aria-label="Open interactive chart: Read the whole sample"><img src="charts/cumulative.svg" width="720" height="430" loading="lazy" alt="The same measurements as a cumulative step curve. Read the fraction of observations at or below a chosen measurement."></a>
+<div class="downloads"><span>Open or download</span><div><a href="charts/cumulative.svg" download>SVG</a><a href="charts/cumulative.png" download>PNG</a><a href="charts/cumulative.html" download>HTML</a></div></div>
+<details><summary>View runnable Go example</summary><pre><code>package main
+
+import (
+	cf &#34;github.com/Alifarid0011/chartframe&#34;
+	&#34;log&#34;
+)
+
+func main() {
+	values := []float64{18, 22, 25, 26, 27, 28, 29, 30, 30, 31, 32, 33, 34, 34, 35, 36, 36, 37, 38, 38, 39, 40, 40, 41, 42, 42, 43, 44, 45, 46, 47, 48, 49, 50, 52, 56}
+	c := cf.New(&#34;Cumulative measurements&#34;).
+		ECDF(&#34;samples&#34;, values).
+		Labels(&#34;Measurement&#34;, &#34;Cumulative fraction&#34;)
+	if err := c.Save(&#34;cumulative.svg&#34;); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre></details>
+</article>
+</div>
+</section>
+<section class="report" aria-labelledby="report-title"><div><p class="eyebrow">One figure, six views</p><h2 id="report-title">Take the notebook with you.</h2><p>Compose the same charts with <code>cf.Grid</code> and export a complete research sheet. The HTML includes local viewport pan, zoom, reset, and SVG download.</p></div><div class="actions"><a class="button" href="research.svg" download>SVG sheet</a><a class="button" href="research.pdf" download>PDF report</a><a class="button" href="research.html">Open HTML ↗</a></div></section>
+<section class="notes" aria-label="How it works"><div><h3>Go in, charts out.</h3><p>Line, scatter, categorical bar, histogram, box plot, heatmap, and ECDF. Add labels, compare series, or compose a dashboard.</p></div><div><h3>Small analysis helpers.</h3><p>Fit a least-squares line, describe a sample with interpolated quartiles, or create validated histogram bins. Read CSV columns without silently dropping missing values.</p></div><div><h3>Built on Gonum Plot.</h3><p><a href="https://gonum.org/v1/plot/">Gonum Plot</a> provides the rendering and typography. Chartframe adds validated builders, statistics, export, and dashboard composition.</p></div></section>
+</main>
+<footer><p>Created by <a href="https://github.com/Alifarid0011">alifarid</a> · MIT license · Fixed synthetic data.</p><div><a href="https://github.com/Alifarid0011/gobook">GoBook</a><a href="https://github.com/Alifarid0011/sheetframe">sheetframe</a><a href="https://github.com/Alifarid0011/chartframe">Source</a></div></footer>
+</body>
+</html>
