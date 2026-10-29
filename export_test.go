@@ -130,8 +130,17 @@ func TestExtremeRangeReturnsError(t *testing.T) {
 	if _, err := c.SVG(); err == nil {
 		t.Fatal("unrepresentable axis span accepted")
 	}
-	if _, err := New("subnormal").Line("x", []float64{math.SmallestNonzeroFloat64, 2 * math.SmallestNonzeroFloat64}, []float64{1, 2}).LogX().SVG(); err == nil {
-		t.Fatal("indistinguishable log coordinates accepted")
+	lo, hi := math.SmallestNonzeroFloat64, 2*math.SmallestNonzeroFloat64
+	_, err := New("subnormal").Line("x", []float64{lo, hi}, []float64{1, 2}).LogX().SVG()
+	// Go's architecture-specific Log implementations can round these subnormal
+	// inputs to the same coordinate. Reject a collapsed span, but allow it when
+	// the platform preserves two distinct logarithms.
+	if math.Log(lo) >= math.Log(hi) {
+		if err == nil {
+			t.Fatal("indistinguishable log coordinates accepted")
+		}
+	} else if err != nil {
+		t.Fatalf("representable subnormal log range: %v", err)
 	}
 }
 
